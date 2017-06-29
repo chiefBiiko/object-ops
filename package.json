@@ -1,0 +1,16 @@
+{
+  "name": "republish-ip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "post.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv-safe": "^4.0.4",
+    "public-ip": "^2.3.5"
+  }
+}
