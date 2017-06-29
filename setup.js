@@ -1,11 +1,11 @@
-/* setup */
+/* setup.js */
 
-require('dotenv-safe').load({allowEmptyValues: true})
 const publicIp = require('public-ip')
 const https = require('https')
 const fs = require('fs')
 
-if (process.env.MY_STORE) throw new Error('Env var MY_STORE already defined')
+require('dotenv-safe').load({allowEmptyValues: true})
+if (process.env.MY_STORE) throw new Error('dotenv var MY_STORE already defined')
 
 publicIp.v4().then(ip => {
   
