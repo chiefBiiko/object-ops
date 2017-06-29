@@ -4,12 +4,18 @@ const publicIp = require('public-ip')
 const https = require('https')
 const fs = require('fs')
 
-require('dotenv-safe').load({allowEmptyValues: true})
-if (process.env.MY_STORE) throw new Error('dotenv var MY_STORE already defined')
+const username = process.argv[2]
+
+if (fs.existsSync('.env')) {
+  require('dotenv-safe').load({allowEmptyValues: true})
+  if (/[^ ]+/.test(process.env.MY_STORE)) {
+    throw new Error('dotenv var MY_STORE already defined')
+  }
+}
 
 publicIp.v4().then(ip => {
   
-  const pubip = JSON.stringify({pubip: ip})
+  const pubip = JSON.stringify({user: username, public: ip})
   
   const options = {
     hostname : 'api.myjson.com',
@@ -34,6 +40,8 @@ publicIp.v4().then(ip => {
   
   req.on('error', console.error)
   
-  req.write(pubip, 'utf8').end()
+  req.write(pubip, 'utf8')
+
+  req.end()
   
-})
+}).catch(console.error)
