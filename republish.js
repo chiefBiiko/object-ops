@@ -1,7 +1,7 @@
 /* republish.js */
 
 const publicIp = require('public-ip')
-const ed = require('./ed')
+const cipher = require('./cipher')
 const https = require('https')
 
 var store_id, username
@@ -13,7 +13,7 @@ publicIp.v4().then(ip => {
   
   const pubip = JSON.stringify({
     user: username, 
-    public: ed.encrypt(ip, username)
+    public: cipher.encrypt(ip, username)
   })
   
   const options = {

@@ -1,6 +1,6 @@
 const crypto = require('crypto')
 
-const ed = {
+const cipher = {
   encrypt: (plaintext, key) => {
     const cipher = crypto.createCipher('aes-256-cbc', key)
     var crypt = cipher.update(plaintext, 'utf8', 'base64')
@@ -15,4 +15,4 @@ const ed = {
   }
 }
 
-module.exports = ed
+module.exports = cipher

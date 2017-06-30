@@ -1,6 +1,6 @@
 /* schedule.js */
 
-const join = require('path').join
+const { join } = require('path')
 const { spawn } = require('child_process')
 
 module.exports = () => {
