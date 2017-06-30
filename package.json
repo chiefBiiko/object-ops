@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv-safe": "^4.0.4",
-    "public-ip": "^2.3.5"
+    "public-ip": "^2.3.5",
+    "readline-sync": "^1.4.7"
   }
 }
