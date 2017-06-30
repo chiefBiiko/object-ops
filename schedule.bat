@@ -1,1 +1,1 @@
-schtasks.exe /create /sc daily /tn republish-ip /tr %1
+schtasks.exe /create /sc daily /tn republish-ip /tr "%1"
