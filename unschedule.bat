@@ -1,0 +1,1 @@
+schtasks.exe /delete /tn republish-ip /f

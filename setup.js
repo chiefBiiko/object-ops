@@ -5,6 +5,7 @@ const publicIp = require('public-ip')
 const cipher = require('./cipher')
 const https = require('https')
 const fs = require('fs')
+const scheduler = require('./scheduler')
 
 const username = process.argv[2]
 if (!username) {
@@ -12,7 +13,7 @@ if (!username) {
   process.exit(1)
 }
 const ui = readlineSync.question(`Use this name: ${username} [y/n]? `)
-if (!/y/i.test(ui)) process.exit(1)
+if (!/^y(?:e?a|es)?$/i.test(ui)) process.exit(1)
 
 
 if (fs.existsSync('.env')) {
@@ -45,16 +46,22 @@ publicIp.v4().then(ip => {
     res.setEncoding('utf8')
     res.on('data', data => {
       const uri = JSON.parse(data).uri
-      fs.writeFile('.env', `MY_STORE=${uri}\nMY_NAME=${username}`, 'utf8',
-                   err => err && console.error(err))
+      fs.writeFileSync('.env', `MY_STORE=${uri}\nMY_NAME=${username}`, 'utf8')
       console.log(data)
+      scheduler.schedule()
     })
   })
   
-  req.on('error', console.error)
+  req.on('error', err => {
+    console.error(err)
+    process.exit(1)
+  })
   
   req.write(pubip, 'utf8')
 
   req.end()
   
-}).catch(console.error)
+}).catch(err => {
+  console.error(err)
+  process.exit(1)
+})
