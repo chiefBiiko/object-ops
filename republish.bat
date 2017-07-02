@@ -1,1 +1,1 @@
-node republish.js
+node.exe republish.js > republish.log 2>&1
