@@ -48,7 +48,7 @@ publicIp.v4().then(ip => {
       const uri = JSON.parse(data).uri
       fs.writeFileSync('.env', `MY_STORE=${uri}\nMY_NAME=${username}`, 'utf8')
       console.log(data)
-      scheduler.schedule()
+    //scheduler.schedule()
     })
   })
   
