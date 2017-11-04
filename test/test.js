@@ -93,9 +93,9 @@ describe('object-ops', () => {
     })
   })
 
-  describe('.hasValue(obj, val)', () => {
+  describe('.hasVal(obj, val)', () => {
     it('should check if obj contains any val', () => {
-      ops.hasValue({ a: 1, z: 99 }, 99).should.be.true
+      ops.hasVal({ a: 1, z: 99 }, 99).should.be.true
     })
   })
 
