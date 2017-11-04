@@ -46,8 +46,10 @@ describe('object-ops', () => {
 
   describe('.every(obj, func, that)', () => {
     it('should assert all func returns are truthy', () => {
-      ops.every({ a: 2, b: 4 }, (val, key, obj) => val % 2 === 0).should.be.true
-      ops.every({ a: 2, b: 5 }, (val, key, obj) => val % 2 === 0).should.be.false
+      ops.every({ a: 2, b: 4 }, (val, key, obj) => val % 2 === 0)
+        .should.be.true
+      ops.every({ a: 5, b: 4 }, (val, key, obj) => val % 2 === 0)
+        .should.be.false
     })
   })
 
@@ -77,15 +79,22 @@ describe('object-ops', () => {
     })
   })
 
-  describe('.hasValue(obj, val)', () => {
-    it('should check if obj contains any val', () => {
-      ops.hasValue({ a: 1, z: 99 }, 99).should.be.true
-    })
-  })
-
   describe('.hasProp(obj, key, val)', () => {
     it('should check if obj contains any key-val pair', () => {
       ops.hasProp({ a: 1, z: 99 }, 'z', 99).should.be.true
+    })
+  })
+
+  describe('.hasKey(obj, key)', () => {
+    it('should check if obj has key as own property', () => {
+      ops.hasKey({ a: 1 }, 'a').should.be.true
+      ops.hasKey({ z: 9 }, 'a').should.be.false
+    })
+  })
+
+  describe('.hasValue(obj, val)', () => {
+    it('should check if obj contains any val', () => {
+      ops.hasValue({ a: 1, z: 99 }, 99).should.be.true
     })
   })
 
