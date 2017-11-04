@@ -39,8 +39,9 @@ describe('object-ops', () => {
 
   describe('.forEach(obj, func, that)', () => {
     var stdout = ''
-    it('should apply func for to every property', () => {
-      ops.forEach({ a: 1, b: 2 }, (key, val) => stdout += `${key}:${val}\n`)
+    it('should apply func for each property', () => {
+      ops.forEach({ a: 1, b: 2 }, (val, key, obj) => stdout += `${key}:${val}\n`)
+      stdout.should.equal('a:1\nb:2\n')
     })
   })
 
