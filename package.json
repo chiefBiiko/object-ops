@@ -1,22 +1,25 @@
 {
-  "name": "object-ops",
+  "name": "obs-ops",
   "version": "0.0.1",
-  "description": "",
+  "description": "operate on objects as you do on arrays",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
-  "keywords": [],
+  "keywords": [ "objects", "iteration", "functional programming" ],
   "author": "Noah Anabiik Schwarz",
   "license": "MIT",
+  "engines" : {
+    "node" : ">=6.00"
+  },
   "repository": {
-  "type": "git",
-  "url": "https://github.com/chiefBiiko/object-ops.git"
+    "type": "git",
+    "url": "https://github.com/chiefBiiko/obs-ops.git"
   },
   "bugs": {
-    "url": "https://github.com/chiefBiiko/object-ops/issues"
+    "url": "https://github.com/chiefBiiko/obs-ops/issues"
   },
-  "homepage": "https://github.com/chiefBiiko/object-ops",
+  "homepage": "https://github.com/chiefBiiko/obs-ops",
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^4.0.1"
