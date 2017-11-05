@@ -60,4 +60,4 @@ ops.hasVal({ a: 1, z: 99 }, 99)
 
 ## License
 
-MIT
+[MIT](./license.md)
