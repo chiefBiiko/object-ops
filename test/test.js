@@ -1,7 +1,13 @@
 const should = require('chai').should()
 const ops = require('./../index')
 
-describe('object-ops', () => {
+describe('pojo-ops', () => {
+
+  describe('.keys(obj)', () => {
+    it('should just alias Object.keys', () => {
+      ops.keys({ a: 1, b: 2 }).should.deep.equal([ 'a', 'b' ])
+    })
+  })
 
   describe('.values(obj)', () => {
     it('should return an array that contains all values of the object', () => {

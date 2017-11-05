@@ -13,8 +13,10 @@ operate on objects as you do on arrays.
 Essentially the same as all the equivalent `Array.prototype` methods.
 
 ```js
-const ops = require('obs-ops')
+const ops = require('pojo-ops')
 
+ops.keys({ a: 1, b: 2 })
+// -> [ 'a', 'b' ]
 ops.values({ a: 1, b: { c: 2 } })
 // -> [ 1, { c: 2 } ]
 ops.props({ a: 1, b: { c: 2 } })

@@ -1,4 +1,7 @@
 module.exports = Object.freeze({
+  keys(obj) {
+    return Object.keys(obj)
+  },
   values(obj) {
     return Object.keys(obj).map(function(k) { return this[k] }, obj)
   },
