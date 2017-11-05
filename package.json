@@ -9,6 +9,14 @@
   "keywords": [],
   "author": "Noah Anabiik Schwarz",
   "license": "MIT",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/chiefBiiko/object-ops.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chiefBiiko/object-ops/issues"
+  },
+  "homepage": "https://github.com/chiefBiiko/object-ops",
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^4.0.1"
