@@ -8,6 +8,12 @@ operate on objects as you do on arrays.
 
 ***
 
+## Get it 
+
+`npm install pojo-ops`
+
+***
+
 ## Usage
 
 Essentially the same as all the equivalent `Array.prototype` methods.
