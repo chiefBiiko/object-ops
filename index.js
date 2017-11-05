@@ -1,4 +1,4 @@
-const ops = {
+module.exports = Object.freeze({
   values(obj) {
     return Object.keys(obj).map(function(k) { return this[k] }, obj)
   },
@@ -27,7 +27,7 @@ const ops = {
   },
   forEach(obj, func, that) { // func(val, key, obj)
     this.props(obj).forEach(function(p) {
-      func.apply(that, p.reverse().concat(this)) 
+      func.apply(that, p.reverse().concat(this))
     }, obj)
   },
   every(obj, func, that) { // func(val, key, obj)
@@ -64,6 +64,4 @@ const ops = {
   keysOf(obj, val) {
     return Object.keys(this.filter(obj, v => v === val))
   }
-}
-
-module.exports = Object.freeze(ops)
+})
