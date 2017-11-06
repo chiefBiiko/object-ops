@@ -1,6 +1,6 @@
 # pojo-ops
 
-[![build status](http://img.shields.io/travis/chiefBiiko/object-ops.svg?style=flat)](http://travis-ci.org/chiefBiiko/object-ops) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/chiefBiiko/object-ops?branch=master&svg=true)](https://ci.appveyor.com/project/chiefBiiko/object-ops)
+[![build status](http://img.shields.io/travis/chiefBiiko/pojo-ops.svg?style=flat)](http://travis-ci.org/chiefBiiko/pojo-ops) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/chiefBiiko/pojo-ops?branch=master&svg=true)](https://ci.appveyor.com/project/chiefBiiko/pojo-ops)
 
 ***
 
@@ -8,9 +8,11 @@ operate on objects as you do on arrays.
 
 ***
 
-## Get it 
+## Get it
 
-`npm install pojo-ops`
+```js
+npm install --save pojo-ops
+```
 
 ***
 
@@ -60,7 +62,13 @@ ops.hasKey({ z: 9 }, 'a')
 // -> false
 ops.hasVal({ a: 1, z: 99 }, 99)
 // -> true
+
+ops.extend({ t: 0 }, { u: 1 }, { v: 2 }, { v: 8 })
+// -> { t: 0, u: 1, v: 8 }
+ops.extendLock({ t: 0 }, { u: 1 }, { v: 2 }, { v: 8 })
+// -> { t: 0, u: 1, v: 2 }
 ```
+None of the methods mutate the input object. `ops.extend` overwrites recurring keys, whereas `ops.extendLock` does not.
 
 ***
 

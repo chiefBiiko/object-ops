@@ -59,12 +59,26 @@ module.exports = Object.freeze({
     return this.some(obj, (v, k) => k === key && v === val)
   },
   hasKey(obj, key) {
-    return obj.hasOwnProperty(key)
+    return Object.prototype.hasOwnProperty.call(obj, key)
   },
   hasVal(obj, val) {
     return this.some(obj, v => v === val)
   },
   keysOf(obj, val) {
     return Object.keys(this.filter(obj, v => v === val))
+  },
+  extend(target, ...sources) {
+    return sources.reduce((acc, cur) => {
+      this.forEach(cur, (v, k, o) => acc[k] = v)
+      return acc
+    }, this.map(target, v => v))
+  },
+  extendLock(target, ...sources) {
+    return sources.reduce((acc, cur) => {
+      this.forEach(cur, (v, k, o) => {
+        if (!this.hasKey(acc, k)) acc[k] = v
+      })
+      return acc
+    }, this.map(target, v => v))
   }
 })

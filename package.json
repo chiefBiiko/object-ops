@@ -1,6 +1,6 @@
 {
   "name": "pojo-ops",
-  "version": "0.0.2",
+  "version": "0.1.2",
   "description": "operate on objects as you do on arrays",
   "main": "index.js",
   "scripts": {

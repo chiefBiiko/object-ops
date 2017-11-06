@@ -23,6 +23,10 @@ describe('pojo-ops', () => {
   })
 
   describe('.map(obj, func, that)', () => {
+    const pojo = {}
+    it('should not mutate the input object', () => {
+      Object.is(pojo, ops.map(pojo, v => v)).should.be.false
+    })
     it('should return an object mapped according to func', () => {
       ops.map({ a: 1, b: 2 }, (val, key, obj) => 2 * val)
         .should.deep.equal({ a: 2, b: 4 })
@@ -109,6 +113,37 @@ describe('pojo-ops', () => {
     it('should return an array of keys that point to val', () => {
       ops.keysOf({ a: 1, g: 7, z: 7 }, 2).should.be.empty
       ops.keysOf({ a: 1, g: 7, z: 7 }, 7).should.deep.equal([ 'g', 'z' ])
+    })
+  })
+
+  describe('.extend(target, ...sources)', () => {
+    const target = {}
+    it('should not mutate the input object', () => {
+      Object.is(target, ops.extend(target, {})).should.be.false
+    })
+    it('should extend target by own sources.props, last see last be', () => {
+      ops.extend({ t: 0 }, { u: 1 }, { v: 2 }, { v: 8 })
+        .should.deep.equal({ t: 0, u: 1, v: 8 })
+    })
+  })
+
+  describe('.extendLock(target, ...sources)', () => {
+    const target = {}
+    it('should not mutate the input object', () => {
+      Object.is(target, ops.extendLock(target, {})).should.be.false
+    })
+    it('should extend target by own sources.props, first see first be', () => {
+      ops.extendLock({ t: 0 }, { u: 1 }, { v: 2 }, { v: 8 })
+        .should.deep.equal({ t: 0, u: 1, v: 2 })
+    })
+  })
+
+  describe('support for objects without a prototype', () => {
+    const noop = Object.create(null)
+    noop.b = 7
+    it('should allow passing objects with no prototype', () => {
+      ops.hasKey(noop, 'a').should.be.false
+      ops.hasKey(noop, 'b').should.be.true
     })
   })
 
