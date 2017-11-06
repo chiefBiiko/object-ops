@@ -4,7 +4,7 @@
 
 ***
 
-operate on objects as you do on arrays.
+Operate on objects as you do on arrays.
 
 ***
 

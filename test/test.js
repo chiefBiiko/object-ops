@@ -78,14 +78,14 @@ describe('pojo-ops', () => {
   })
 
   describe('.randomKey(obj)', () => {
-    it('should return a key of object at random', () => {
+    it('should return a key of obj at random', () => {
       [ 'a', 'b' ].includes(ops.randomKey({ a: 1, b: 2 })).should.be.true
     })
   })
 
 
   describe('.randomVal(obj)', () => {
-    it('should return a key of object at random', () => {
+    it('should return a value of obj at random', () => {
       [ 1, 2 ].includes(ops.randomVal({ a: 1, b: 2 })).should.be.true
     })
   })

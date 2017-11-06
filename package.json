@@ -1,12 +1,12 @@
 {
   "name": "pojo-ops",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "operate on objects as you do on arrays",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
-  "keywords": [ "objects", "iteration", "functional programming" ],
+  "keywords": [ "pojo", "objects", "iteration", "functional programming" ],
   "author": "Noah Anabiik Schwarz",
   "license": "MIT",
   "engines" : {

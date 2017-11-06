@@ -50,10 +50,12 @@ module.exports = Object.freeze({
     return props[Math.floor(Math.random() * props.length)]
   },
   randomKey(obj) {
-    return this.randomProp(obj)[0]
+    const ks = Object.keys(obj)
+    return ks[Math.floor(Math.random() * ks.length)]
   },
   randomVal(obj) {
-    return this.randomProp(obj)[1]
+    const vs = this.values(obj)
+    return vs[Math.floor(Math.random() * vs.length)]
   },
   hasProp(obj, key, val) {
     return this.some(obj, (v, k) => k === key && v === val)
