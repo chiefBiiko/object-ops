@@ -109,7 +109,7 @@ describe('pojo-ops', () => {
     })
   })
 
-  describe('.keysOf(val)', () => {
+  describe('.keysOf(obj, val)', () => {
     it('should return an array of keys that point to val', () => {
       ops.keysOf({ a: 1, g: 7, z: 7 }, 2).should.be.empty
       ops.keysOf({ a: 1, g: 7, z: 7 }, 7).should.deep.equal([ 'g', 'z' ])
