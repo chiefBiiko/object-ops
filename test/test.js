@@ -140,7 +140,7 @@ describe('pojo-ops', () => {
 
   describe('.clone(obj)', () => {
     const biik = { b: 9 }
-    it('should clone the input object', () => {
+    it('should clone all own props of the input object', () => {
       ops.clone(biik).should.deep.equal({ b: 9 })
     })
     it('should return a new instance', () => {
