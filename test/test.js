@@ -148,7 +148,7 @@ describe('pojo-ops', () => {
     })
   })
 
-  describe('.empty(obj)', () => {
+  describe('.isEmpty(obj)', () => {
     it('should check whether obj has any own property', () => {
       ops.isEmpty({}).should.be.true
       ops.isEmpty({ z: 5 }).should.be.false
