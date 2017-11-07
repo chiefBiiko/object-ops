@@ -67,6 +67,12 @@ ops.extend({ t: 0 }, { u: 1 }, { v: 2 }, { v: 8 })
 // -> { t: 0, u: 1, v: 8 }
 ops.extendLock({ t: 0 }, { u: 1 }, { v: 2 }, { v: 8 })
 // -> { t: 0, u: 1, v: 2 }
+
+ops.clone({ z: 7 })
+// -> { z: 7 }
+
+ops.isEmpty({/*...*/})
+// -> true
 ```
 None of the methods mutate the input object. `ops.extend` overwrites recurring keys, whereas `ops.extendLock` does not.
 

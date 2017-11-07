@@ -138,6 +138,23 @@ describe('pojo-ops', () => {
     })
   })
 
+  describe('.clone(obj)', () => {
+    const biik = { b: 9 }
+    it('should clone the input object', () => {
+      ops.clone(biik).should.deep.equal({ b: 9 })
+    })
+    it('should return a new instance', () => {
+      Object.is(ops.clone(biik), biik).should.be.false
+    })
+  })
+
+  describe('.empty(obj)', () => {
+    it('should check whether obj has any own property', () => {
+      ops.isEmpty({}).should.be.true
+      ops.isEmpty({ z: 5 }).should.be.false
+    })
+  })
+
   describe('support for objects without a prototype', () => {
     const noop = Object.create(null)
     noop.b = 7

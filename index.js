@@ -82,5 +82,11 @@ module.exports = Object.freeze({
       })
       return acc
     }, this.map(target, v => v))
+  },
+  clone(obj) {
+    return this.map(obj, v => v)
+  },
+  isEmpty(obj) {
+    return !Object.keys(obj).length
   }
 })
