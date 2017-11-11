@@ -4,13 +4,19 @@
   "description": "operate on objects as you do on arrays",
   "main": "index.js",
   "scripts": {
+    "style": "./node_modules/.bin/standard --fix",
     "test": "./node_modules/.bin/mocha"
   },
-  "keywords": [ "pojo", "objects", "iteration", "functional programming" ],
+  "keywords": [
+    "pojo",
+    "objects",
+    "iteration",
+    "functional programming"
+  ],
   "author": "Noah Anabiik Schwarz",
   "license": "MIT",
-  "engines" : {
-    "node" : ">=6.00"
+  "engines": {
+    "node": ">=6.00"
   },
   "repository": {
     "type": "git",
@@ -20,8 +26,14 @@
     "url": "https://github.com/chiefbiiko/pojo-ops/issues"
   },
   "homepage": "https://github.com/chiefbiiko/pojo-ops",
+  "standard": {
+    "ignore": [
+      "test.js"
+    ]
+  },
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "standard": "^10.0.3"
   }
 }

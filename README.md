@@ -1,6 +1,6 @@
 # pojo-ops
 
-[![build status](http://img.shields.io/travis/chiefBiiko/pojo-ops.svg?style=flat)](http://travis-ci.org/chiefBiiko/pojo-ops) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/chiefBiiko/pojo-ops?branch=master&svg=true)](https://ci.appveyor.com/project/chiefBiiko/pojo-ops)
+[![build status](http://img.shields.io/travis/chiefbiiko/pojo-ops.svg?style=flat)](http://travis-ci.org/chiefbiiko/pojo-ops) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/chiefbiiko/pojo-ops?branch=master&svg=true)](https://ci.appveyor.com/project/chiefbiiko/pojo-ops) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ***
 
