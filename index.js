@@ -57,14 +57,15 @@ module.exports = Object.freeze({
     const vs = this.values(obj)
     return vs[Math.floor(Math.random() * vs.length)]
   },
-  hasProp (obj, key, val) {
-    return this.some(obj, (v, k) => k === key && v === val)
+  hasProps (obj, props) {
+    return props.every(p => this.some(obj, (v, k) => k === p[0] && v === p[1]))
   },
-  hasKey (obj, key) {
-    return Object.prototype.hasOwnProperty.call(obj, key)
+  hasKeys (obj, ...keys) {
+    return keys.every(Object.prototype.hasOwnProperty.bind(obj))
   },
-  hasVal (obj, val) {
-    return this.some(obj, v => v === val)
+  hasVals (obj, ...vals) {
+    const vs = this.values(obj)
+    return vals.every(val => vs.includes(val))
   },
   keysOf (obj, val) {
     return Object.keys(this.filter(obj, v => v === val))
@@ -80,7 +81,7 @@ module.exports = Object.freeze({
   extendLock (target, ...sources) {
     return sources.reduce((acc, cur) => {
       this.forEach(cur, (v, k, o) => {
-        if (!this.hasKey(acc, k)) acc[k] = v
+        if (!this.hasKeys(acc, k)) acc[k] = v
       })
       return acc
     }, this.map(target, v => v))
@@ -90,5 +91,8 @@ module.exports = Object.freeze({
   },
   isEmpty (obj) {
     return !Object.keys(obj).length
+  },
+  size(obj) {
+    return Object.keys(obj).length
   }
 })

@@ -90,22 +90,22 @@ describe('pojo-ops', () => {
     })
   })
 
-  describe('.hasProp(obj, key, val)', () => {
-    it('should check if obj contains any key-val pair', () => {
-      ops.hasProp({ a: 1, z: 99 }, 'z', 99).should.be.true
+  describe('.hasProps(obj, props)', () => {
+    it('should check if obj contains all key-val pairs of props', () => {
+      ops.hasProps({ a: 1, z: 99 }, [ [ 'z', 99 ] ]).should.be.true
     })
   })
 
-  describe('.hasKey(obj, key)', () => {
-    it('should check if obj has key as own property', () => {
-      ops.hasKey({ a: 1 }, 'a').should.be.true
-      ops.hasKey({ z: 9 }, 'a').should.be.false
+  describe('.hasKeys(obj, ...keys)', () => {
+    it('should check if obj has all keys as own properties', () => {
+      ops.hasKeys({ a: 1 }, 'a').should.be.true
+      ops.hasKeys({ z: 9 }, 'a', 'z').should.be.false
     })
   })
 
-  describe('.hasVal(obj, val)', () => {
-    it('should check if obj contains any val', () => {
-      ops.hasVal({ a: 1, z: 99 }, 99).should.be.true
+  describe('.hasVals(obj, ...vals)', () => {
+    it('should check if obj contains all vals', () => {
+      ops.hasVals({ a: 1, z: 99 }, 99, 1).should.be.true
     })
   })
 
@@ -155,12 +155,19 @@ describe('pojo-ops', () => {
     })
   })
 
+  describe('.size(obj)', () => {
+    it('should return the number of own properties on obj', () => {
+      ops.size({ a: 1, b: 2 }).should.equal(2)
+      ops.size({}).should.equal(0)
+    })
+  })
+
   describe('support for objects without a prototype', () => {
     const noop = Object.create(null)
     noop.b = 7
     it('should allow passing objects with no prototype', () => {
-      ops.hasKey(noop, 'a').should.be.false
-      ops.hasKey(noop, 'b').should.be.true
+      ops.hasKeys(noop, 'a').should.be.false
+      ops.hasKeys(noop, 'b').should.be.true
     })
   })
 

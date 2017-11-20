@@ -56,11 +56,11 @@ ops.randomVal({ a: 1, b: 2 })
 ops.keysOf({ a: 1, g: 7, z: 7 }, 7)
 // -> [ 'g', 'z' ]
 
-ops.hasProp({ a: 1, z: 99 }, 'z', 99)
+ops.hasProps({ a: 1, z: 99 }, [ [ 'a', 1 ], [ 'z', 99 ] ])
 // -> true
-ops.hasKey({ z: 9 }, 'a')
+ops.hasKeys({ z: 9 }, 'a')
 // -> false
-ops.hasVal({ a: 1, z: 99 }, 99)
+ops.hasVals({ a: 1, z: 99 }, 99, 1)
 // -> true
 
 ops.extend({ t: 0 }, { u: 1 }, { v: 2 }, { v: 8 })
@@ -73,6 +73,9 @@ ops.clone({ z: 7 })
 
 ops.isEmpty({/*...*/})
 // -> true
+
+ops.size({ a: 1, b: 2 })
+// -> 2
 ```
 None of the methods mutate the input object. `ops.extend` overwrites recurring keys, whereas `ops.extendLock` does not.
 
