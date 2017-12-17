@@ -58,41 +58,51 @@ module.exports = Object.freeze({
     return vs[Math.floor(Math.random() * vs.length)]
   },
   hasProps (obj, props) {
-    return props.every(p => this.some(obj, (v, k) => k === p[0] && v === p[1]))
+    return props.every(function (p) {
+      return this.some(obj, function (v, k) {
+        return k === p[0] && v === p[1]
+      })
+    }, this)
   },
   hasKeys (obj, ...keys) {
     return keys.every(Object.prototype.hasOwnProperty.bind(obj))
   },
   hasVals (obj, ...vals) {
     const vs = this.values(obj)
-    return vals.every(val => vs.includes(val))
+    return vals.every(function (val) {
+      return vs.includes(val)
+    })
   },
   keysOf (obj, val) {
-    return Object.keys(this.filter(obj, v => v === val))
+    return Object.keys(this.filter(obj, function (v) {
+      return v === val
+    }))
   },
   extend (target, ...sources) {
-    return sources.reduce((acc, cur) => {
-      this.forEach(cur, (v, k, o) => {
+    var self = this
+    return sources.reduce(function (acc, cur) {
+      self.forEach(cur, function (v, k, o) {
         acc[k] = v
       })
       return acc
-    }, this.map(target, v => v))
+    }, this.clone(target))
   },
   extendLock (target, ...sources) {
-    return sources.reduce((acc, cur) => {
-      this.forEach(cur, (v, k, o) => {
-        if (!this.hasKeys(acc, k)) acc[k] = v
+    var self = this
+    return sources.reduce(function (acc, cur) {
+      self.forEach(cur, function (v, k, o) {
+        if (!self.hasKeys(acc, k)) acc[k] = v
       })
       return acc
-    }, this.map(target, v => v))
+    }, this.clone(target))
   },
   clone (obj) {
-    return this.map(obj, v => v)
+    return this.map(obj, function (v) { return v })
   },
   isEmpty (obj) {
     return !Object.keys(obj).length
   },
-  size(obj) {
+  size (obj) {
     return Object.keys(obj).length
   }
 })
